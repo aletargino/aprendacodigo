@@ -1,0 +1,36 @@
+<script>
+/*
+C05. Pergunte o salário do usuário e quantos meses ele trabalhou. Sabendo que o FGTS
+é uma contribuição de 8% ao mês, imprima:
+
+Meses trabalhados: X
+Salário Base: R$ Y
+FGTS Depósito Mensal (8%): R$ Z
+Saldo FGTS: R$ W
+Multa 40%: R$ Q
+Total FGTS com 40% de multa em caso de demissão: R$ T
+*/
+
+var salario = prompt("Qual o seu salario?");
+var meses = prompt("Quantos meses voce trabalhou?");
+
+var fgtsSaldo = (salario * 0.08) * meses;
+var multa = ((salario * 0.08) * meses) * 0.4;
+var total = fgtsSaldo + multa;
+
+  
+document.write("Meses trabalhados:" + meses);
+document.write("<br>");
+document.write("Salario Base: R$ " + salario);
+document.write("<br>");
+document.write("FGTS Depósito Mensal (8%): R$ " +(salario * 0.08));
+document.write("<br>");
+document.write("Saldo FGTS: R$ " + fgtsSaldo);
+document.write("<br>");
+document.write("Multa 40%: R$ " + multa);
+document.write("<br>");
+document.write("Total FGTS com 40% de multa em caso de demissão: R$ " + total);
+
+
+</script>
+
