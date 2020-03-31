@@ -1,0 +1,20 @@
+<script>
+/*  
+C04. Pergunte quantos reais o usuario tem, qual a cotação do dólar e imprima:
+Você possui R$ X, o que hoje, na cotação do Dólar de Y, vale US$ Z.
+
+*/
+  
+var reais = prompt("Quantos reais voce tem hoje?");
+var cotacao = prompt("Qual a cotacao do dollar hoje?");
+  
+reais = Number(reais);
+cotacao = Number(cotacao);
+
+var dollar = reais / cotacao;
+
+  
+document.write("Você possui R$" + reais + ", o que hoje, na cotação do Dólar de" + cotacao +", vale US$" + dollar + ".");
+
+</script>
+ 
