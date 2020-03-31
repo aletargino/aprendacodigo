@@ -1,0 +1,31 @@
+<script>
+  /*  C03. Crie um programa que pergunte o nome do usuário e a quantas gramas comeu de proteína, 
+carboidrato e gordura. Sabendo que o carboidrato e a proteína tem 4 calorias e a gordura
+tem 9 calorias, faça o programa imprimir:
+Resumo Calórico de NOME_DO_USUARIO
+Carboidrato: C g = C' cal
+Proteina: P g = P' cal
+Gordura: G g = G' cal
+Total de calorias: X calorias
+*/
+
+var nome = prompt("Qual o seu nome?");
+var ptns = prompt("Quantas gramas de proteina voce comeu hoje?");
+var carbo = prompt("Quantas gramas de carboidrato voce comeu hoje?");
+var gordura = prompt("Quantas gramas de gordura voce comeu hoje?");
+
+var ptnsCal = ptns *  4;
+var carboCal = carbo * 4;
+var gorduraCal = gordura * 9;
+var totalCal = ptnsCal + carboCal + gorduraCal;
+
+document.write("Resumo calorico de " + nome);
+document.write("<br>");
+document.write("Proteina" + ptns + "g " + ptnsCal + "cal");
+document.write("<br>");
+document.write("Carboidrato" + carbo + "g " + carboCal + "cal");
+document.write("<br>");
+document.write("Gordura" + gordura + "g " + gorduraCal + "cal");
+document.write("<br>");
+document.write("Total de calorias:" + totalCal + "cal");
+</script>
