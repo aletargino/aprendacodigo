@@ -1,0 +1,27 @@
+<script>
+    /*C02. Crie um programa que pergunte o salário em Reais e o aumento em percentual
+do usuário e imprima:
+Salário Inicial: R$ X
+Aumento: Y%
+Valor do aumento: R$ Z
+Novo Salário: R$ W
+*/
+
+var salario = prompt("Qual é o seu salário?")
+salario = Number(salario)
+
+var aumento = prompt("Qual é o aumento percentual?")
+aumento = Number(aumento)
+
+var valorDoAumento = salario * [aumento /100];
+
+var novoSalario = salario + valorDoAumento;
+
+document.write("Salario Inicial: R$" + salario);
+document.write("<br>");
+document.write("Aumento: " + aumento+"%");
+document.write("<br>");
+document.write("Valor do aumento: R$" + valorDoAumento);
+document.write("<br>");
+document.write("Novo Salario: R$" + novoSalario);
+</script>
