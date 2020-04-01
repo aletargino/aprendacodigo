@@ -2,11 +2,11 @@
 
 <p>Temos os <strong>melhores carros</strong> com os <strong>melhores precos</strong>! <em>Venha conferir!</em></p>
 
-<img src="imgs/carro01.jpeg" height="200" align="left">
+<img src="imgs/carro01.jpg" height="200" align="left">
 
 <p>Entre em contato conosco atraves do formulario abaixo:</p>
 
-<form id="contato">
+<form id="contato" onsubmit="enviarContato()">
     <input type="text" name="nomeCompleto" placeholder="Insira seu Nome Completo">
     <br>
     <Input type="text" name="telefone" placeholder="Insira seu telefone">
@@ -17,3 +17,23 @@
 </form>
 
 
+<textarea>Mensagem</textarea>
+
+<script>
+ function enviarContato(){
+    var enviarContato = document.querySelector("form");
+    var enviarContato = new FormData(enviarContato);
+    var nomeCompleto = enviarContato.get("Insira seu Nome Completo");
+    var telefone = enviarContato.get("Insira seu telefone");
+    var email = enviarContato.get("Insira seu email");
+
+    if (!nomeCompleto || !telefone || !email){
+        alert("Por favor, preencha o Nome Completo, Email e Mensagem para entrar em contato conosco!");
+        return false;
+
+ }
+    var mensagem = "Contato enviado com sucesso, por favor, aguarde nosso retorono!"
+    alert(mensagem);
+    return false;
+}
+</script>

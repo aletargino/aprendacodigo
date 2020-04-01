@@ -26,12 +26,12 @@ function cadastrarCarro() {
 
     if (!modelo || !ano){
         alert("Por favor, preencha o modelo e o ano do carro!");
-    return false;
+        return false;
     }
 
 
     //prepara mensagem de sucesso
-    var mensagem = "Carro " + modelo + " " + ano + " cadastrado com sucesso";
+    var mensagem = "Carro " + modelo + "/ " + ano + " cadastrado com sucesso";
 
     alert(mensagem);
     return false;
