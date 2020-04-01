@@ -1,6 +1,40 @@
-<h1>AutoCarros Leo</h1>
+<h1>AutoCarros Ale</h1>
 
 <p>Cadastro de Carros para venda</p>
 <p>Para adicionar um novo carro, preencha o formulario a seguir:</p>
 
-<form id= "cadastro"
+<form id="cadastro" onsubmit="return cadastrarCarro()">
+    <input type="text" name="modelo" placeholder="Modelo do Carro"><br>
+    <input type="text" name="preco" placeholder="Preco"><br>
+    <input type="text" name="ano" placeholder="Ano"><br>
+    <button>Cadastrar</button>
+</form>
+
+<script>
+function cadastrarCarro() {
+    // seleciona o form do documento e coloca na variavel formDeCadastro
+    var formDeCadastro = document.querySelector("form");
+
+    //obtem os dados dos campos do formulario
+    var dadosDeCadastro = new FormData(formDeCadastro);
+
+    //obtem o modelo do carro
+    var modelo = dadosDeCadastro.get("modelo");
+
+    //obtem o ano do carro
+    var ano = dadosDeCadastro.get("ano")
+
+    if (!modelo || !ano){
+        alert("Por favor, preencha o modelo e o ano do carro!");
+    return false;
+    }
+
+
+    //prepara mensagem de sucesso
+    var mensagem = "Carro " + modelo + " " + ano + " cadastrado com sucesso";
+
+    alert(mensagem);
+    return false;
+}
+
+</script>
