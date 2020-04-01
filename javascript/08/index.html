@@ -13,9 +13,9 @@ Total FGTS com 40% de multa em caso de demissão: R$ T
 
 var salario = prompt("Qual o seu salario?");
 var meses = prompt("Quantos meses voce trabalhou?");
-
-var fgtsSaldo = (salario * 0.08) * meses;
-var multa = ((salario * 0.08) * meses) * 0.4;
+var deposito = salario * 0.08;
+var fgtsSaldo = deposito * meses;
+var multa = fgtsSaldo * 0.4;
 var total = fgtsSaldo + multa;
 
   
@@ -23,7 +23,7 @@ document.write("Meses trabalhados:" + meses);
 document.write("<br>");
 document.write("Salario Base: R$ " + salario);
 document.write("<br>");
-document.write("FGTS Depósito Mensal (8%): R$ " +(salario * 0.08));
+document.write("FGTS Depósito Mensal (8%): R$ " + deposito);
 document.write("<br>");
 document.write("Saldo FGTS: R$ " + fgtsSaldo);
 document.write("<br>");

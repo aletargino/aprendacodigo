@@ -1,0 +1,25 @@
+<script>
+/*
+C06. Ao ir em um restaurante, é comum que lhe cobrem 10%. Pergunte ao usuário qual foi o valor da conta e imprima:
+
+Conta a Pagar: R$ X
+Valor dos 10%: R$ Y
+Total da Conta: R$ Z
+*/
+
+var conta = prompt ("Qual foi o valor da conta?");
+conta = Number (conta);
+var gorjeta = conta * 0.1;
+gorjeta = Number (gorjeta);
+var total = conta + gorjeta;
+total = Number (total);
+
+document.write ("Conta a Pagar: R$ " + conta);
+document.write ("<br>");
+document.write ("Valor dos 10%: R$ " + gorjeta);
+document.write ("<br>");
+document.write ("Total da conta: R$ " + total);
+
+
+
+</script>
