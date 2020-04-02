@@ -23,16 +23,16 @@
  function enviarContato(){
     var enviarContato = document.querySelector("form");
     var enviarContato = new FormData(enviarContato);
-    var nomeCompleto = enviarContato.get("Insira seu Nome Completo");
-    var telefone = enviarContato.get("Insira seu telefone");
-    var email = enviarContato.get("Insira seu email");
+    var nomeCompleto = enviarContato.get("nomeCompleto");
+    var telefone = enviarContato.get("telefone");
+    var email = enviarContato.get("email");
 
     if (!nomeCompleto || !telefone || !email){
         alert("Por favor, preencha o Nome Completo, Email e Mensagem para entrar em contato conosco!");
         return false;
 
  }
-    var mensagem = "Contato enviado com sucesso, por favor, aguarde nosso retorono!"
+    var mensagem = "Ei, " + nomeCompleto + ", sua mensagem foi enviada com sucesso, por favor, aguarde nosso retorno!"
     alert(mensagem);
     return false;
 }

@@ -4,10 +4,23 @@
 <p>Para adicionar um novo carro, preencha o formulario a seguir:</p>
 
 <form id="cadastro" onsubmit="return cadastrarCarro()">
-    <input type="text" name="modelo" placeholder="Modelo do Carro"><br>
-    <input type="text" name="preco" placeholder="Preco"><br>
-    <input type="text" name="ano" placeholder="Ano"><br>
-    <button>Cadastrar</button>
+    <label for="marca">Marca:</label>
+    <input type="text" name="marca" id="marca" placeholder="Volkswagen" required>
+    <br>
+    <label for="modelo">Modelo:</label>
+    <input type="text" name="modelo" id="modelo" placeholder="Gol" required>
+    <br>
+    <label for="ano">Ano:</label>
+    <input type="text" name="ano" id="ano" placeholder="2013" required>
+    <br>
+    <label for="preco">Preço:</label>
+    <input type="text" name="preco" id="preco" placeholder="19350" required>
+    <br>
+    <label for="descricao">Descrição:</label>
+    <textarea name="descricao" id="descricao" rows="5"
+        placeholder="Carro lindo e confortável"></textarea>
+    <br>
+    <button type="submit">Cadastrar</button>
 </form>
 
 <script>
@@ -18,23 +31,48 @@ function cadastrarCarro() {
     //obtem os dados dos campos do formulario
     var dadosDeCadastro = new FormData(formDeCadastro);
 
-    //obtem o modelo do carro
-    var modelo = dadosDeCadastro.get("modelo");
+    var carro = {
+        marca: dadosDeCadastro.get("marca"),
+        modelo: dadosDeCadastro.get("modelo"),
+        ano: Number(dadosDeCadastro.get("ano")),
+        preco: Number(dadosDeCadastro.get("preco")),
+        descricao: dadosDeCadastro.get("descricao"),
 
-    //obtem o ano do carro
-    var ano = dadosDeCadastro.get("ano")
+    };
 
-    if (!modelo || !ano){
-        alert("Por favor, preencha o modelo e o ano do carro!");
+ 
+    //verificar se o usuario entrou um numero invalido
+    if (isNaN(carro.ano)){
+        alert("Numero do ano do carro esta invalido");
         return false;
+    } else if (carro.ano < 1886){ //verificar se o no do carro e real
+        alert("Nao ha registros de carros antes de 1886, criado por Karl Benz!");
+        return false;
+
     }
 
 
+    if (isNaN(carro.preco)){
+        alert("Preco esta incorreto");
+        return false;
+    } else if (carro.preco <= 0){ //verificar se o ano do carro e real
+        alert("Preço precisa ser maior que zero!");
+        return false;
+
+    }
+
     //prepara mensagem de sucesso
-    var mensagem = "Carro " + modelo + "/ " + ano + " cadastrado com sucesso";
+    var mensagem = "Carro " + carro.marca + " " + carro.modelo + "/ " + carro.ano + " cadastrado com sucesso";
 
     alert(mensagem);
     return false;
 }
 
+funcition salvarCarro(carro) {
+    //converter o objeito carro par texto
+    var carroEmTexto = JSON.stringify(carro);
+    //salvar o texto no banco usando a chave 'carros'
+    localStorage.setItem("carros", carroEmTexto);
+
+}
 </script>
