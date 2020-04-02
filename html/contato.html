@@ -7,33 +7,44 @@
 <p>Entre em contato conosco atraves do formulario abaixo:</p>
 
 <form id="contato" onsubmit="enviarContato()">
-    <input type="text" name="nomeCompleto" placeholder="Insira seu Nome Completo">
+    <label for="nomeCompleto">Nome Completo:</label>
+    <input type="text" name="nomeCompleto" placeholder="Insira seu Nome Completo" required>
     <br>
+    <label for="telefone">Telefone:</label>
     <Input type="text" name="telefone" placeholder="Insira seu telefone">
     <br>
-    <input type="text" name="email" placeholder="Insira seu email">
-
+    <label for="email">Email:</label>
+    <input type="text" name="email" placeholder="Insira seu email" required>
+   
     <button>Enviar</button>
 </form>
 
 
-<textarea>Mensagem</textarea>
+<textarea required>Mensagem</textarea>
 
 <script>
  function enviarContato(){
     var enviarContato = document.querySelector("form");
     var enviarContato = new FormData(enviarContato);
-    var nomeCompleto = enviarContato.get("nomeCompleto");
-    var telefone = enviarContato.get("telefone");
-    var email = enviarContato.get("email");
 
-    if (!nomeCompleto || !telefone || !email){
-        alert("Por favor, preencha o Nome Completo, Email e Mensagem para entrar em contato conosco!");
-        return false;
+    var contato = {
+        nomeCompleto: enviarContato.get("nomeCompleto"),
+        telefone: enviarContato.get("telefone"),
+        email: enviarContato.get("email"),
+        mensagem: enviarContato.get("mensagem"),
+        dataHora: Date.now(),
+    };
+    
+    salvarContatos(contatos);
 
- }
-    var mensagem = "Ei, " + nomeCompleto + ", sua mensagem foi enviada com sucesso, por favor, aguarde nosso retorno!"
+    var mensagem = "Ei, " + nomeCompleto + ", sua mensagem foi enviada com sucesso, por favor, aguarde nosso retorno!";
+
     alert(mensagem);
     return false;
+}
+
+function salvarContatos(contatos) {   
+    var contatosEmTexto = JSON.stringify(contatos);
+    localStorage.setItem("contatos", contatosEmTexto);
 }
 </script>

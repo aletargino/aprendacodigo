@@ -1,0 +1,27 @@
+<h1>AutoCarros Ale</h1>
+
+<p>Veja abaixo a lista de contatos enviados para o site:</p>
+
+<h2>Lista de Contatos</h2>
+
+<div id="contatos"></div>
+
+<script>
+    var contatoEmTexto = localStorage.getItem("contatos");
+var carro = JSON.parse(carroEmTexto);
+
+var divContatos = document.querySelector("#contatos");
+
+
+divCarros.innerHTML = `
+<h3>${contato.nomeCompleto} (${contato.email})</h3>
+<p>
+    <strong>Data/Hora:</strong> ${new Date(contato.dataHora)}<br>
+    <strong>Telefone:</strong> ${contato.telefone}<br>
+    <strong>Mensagem:</strong><br>
+    ${contato.mensagem}
+</p>
+`
+
+
+</script>

@@ -1,0 +1,25 @@
+<h1>AutoCarros Ale</h1>
+
+<p>Veja aqui nosso magnífico estoque de carros disponíveis a venda! Preços imbatíveis você só irá achar aqui!</p>
+
+<h3>Lista de Carros</h3>
+
+<div id="carros"></div>
+
+<script>
+
+var carroEmTexto = localStorage.getItem("carros");
+var carro = JSON.parse(carroEmTexto);
+
+// recuperamos a div que vamos imprimir os carros
+var divCarros = document.querySelector("#carros");
+
+// adicionamos os carros na div
+divCarros.innerHTML = `
+    <h3>${carro.marca} ${carro.modelo} / ${carro.ano} </h3>
+    <p>
+        <strong>Apenas: R$${carro.preco}</strong><br>
+        ${carro.descricao}
+    </p>
+`
+</script>

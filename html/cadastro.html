@@ -61,6 +61,8 @@ function cadastrarCarro() {
 
     }
 
+    salvarCarro(carro);
+
     //prepara mensagem de sucesso
     var mensagem = "Carro " + carro.marca + " " + carro.modelo + "/ " + carro.ano + " cadastrado com sucesso";
 
@@ -68,11 +70,12 @@ function cadastrarCarro() {
     return false;
 }
 
-funcition salvarCarro(carro) {
+function salvarCarro(carro) {
     //converter o objeito carro par texto
     var carroEmTexto = JSON.stringify(carro);
     //salvar o texto no banco usando a chave 'carros'
     localStorage.setItem("carros", carroEmTexto);
-
 }
+
+
 </script>
